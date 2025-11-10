@@ -30,11 +30,11 @@ const projectData = [
   {
     id: 3,
     image: card3,
-    category: "UI-UX DESIGN",
-    title: "Product Admin Dashboard",
+    category: "WEB DEVELOPMENT",
+    title: "Luxury Real Estate Platform",
     description:
-      "Developed a modern admin panel with a focus on usability and seamless navigation for end users and so on.",
-    link: "#!",
+      "Premier luxury brokerage platform for Nairobi's elite neighborhoods including Lavington, Kilimani, Kileleshwa, Runda, Karen & Kitisuru.",
+    link: "https://real-estate-2-hbx3.onrender.com/",
   },
   {
     id: 4,

@@ -7,7 +7,7 @@ import WorkTogether from "../components/workTogether/WorkTogether";
 
 import Profession from "../components/profession/Profession";
 import HappyClients from "../components/happyClients/HappyClients";
-import Testimonial from "../components/testimonial/Testimonial";
+import Skills from "../components/skills/Skills";
 import Contact from "../components/contact/Contact";
 import "../../index.css";
 
@@ -54,9 +54,9 @@ const Home = () => {
         <HappyClients />
       </div>
       
-      {/* Testimonials Section */}
+      {/* Skills Section */}
       <div className="bg-soft-white py-20">
-        <Testimonial />
+        <Skills />
       </div>
       
       {/* Contact Section */}
