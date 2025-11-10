@@ -2,7 +2,7 @@ import { lazy, Suspense } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import Loading from "../components/common/loading/Loading";
 const Home = lazy(() => import("../pages/Home"));
-const PortfolioPage = lazy(() => import("../pages/PortfolioPage"));
+
 const ProjectDetail = lazy(() => import("../pages/ProjectDetail"));
 const Main = lazy(() => import("../layouts/Main"));
 
@@ -22,10 +22,7 @@ export const router = createBrowserRouter(
           path: "/",
           element: <Home></Home>,
         },
-        {
-          path: "/portfolio",
-          element: <PortfolioPage></PortfolioPage>,
-        },
+
         {
           path: "/project/:id",
           element: <ProjectDetail></ProjectDetail>,

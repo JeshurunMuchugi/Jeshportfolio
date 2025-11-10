@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import logo from "../../../assets/logo.png";
-import { Link } from "react-scroll";
+import { Link as ScrollLink } from "react-scroll";
+import { Link as RouterLink } from "react-router-dom";
 
 const navItems = [
   { id: 1, name: "Home", url: "introduction" },
@@ -17,28 +19,40 @@ const handleMenuClick = () => {
   }
 };
 
-const menu = navItems.map((item) => (
-  <li key={item.id} onMouseDown={(e) => e.preventDefault()}>
-    <Link
-      onClick={handleMenuClick}
-      to={item.url.toLowerCase()}
-      smooth={true}
-      duration={1000}
-      spy={true}
-      offset={-140}
-      activeStyle={{
-        backgroundColor: "#ff6b35",
-        color: "white",
-      }}
-      className={`hover:text-picto-primary px-5 py-3 mx-1`}
-    >
-      {item.name}
-    </Link>
-  </li>
-));
-
 const NavBar = () => {
   const [position, setPosition] = useState(0);
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
+
+  const menu = navItems.map((item) => (
+    <li key={item.id} onMouseDown={(e) => e.preventDefault()}>
+      {isHomePage ? (
+        <ScrollLink
+          onClick={handleMenuClick}
+          to={item.url.toLowerCase()}
+          smooth={true}
+          duration={1000}
+          spy={true}
+          offset={-140}
+          activeStyle={{
+            backgroundColor: "#ff6b35",
+            color: "white",
+          }}
+          className={`hover:text-picto-primary px-5 py-3 mx-1 cursor-pointer`}
+        >
+          {item.name}
+        </ScrollLink>
+      ) : (
+        <RouterLink
+          onClick={handleMenuClick}
+          to={`/#${item.url.toLowerCase()}`}
+          className={`hover:text-picto-primary px-5 py-3 mx-1`}
+        >
+          {item.name}
+        </RouterLink>
+      )}
+    </li>
+  ));
 
   useEffect(() => {
     const handleScroll = () => {
@@ -85,20 +99,33 @@ const NavBar = () => {
             </ul>
           </div>
 
-          <Link
-            href="#introduction"
-            to={`introduction`}
-            smooth={true}
-            duration={900}
-            className="flex items-center border-0 lg:max-xxl:ps-5"
-          >
-            <div className="h-8 sm:h-14 w-8 sm:w-14 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center shadow-lg">
-              <span className="text-white font-bold text-lg sm:text-2xl">J</span>
-            </div>
-            <p className="text-2xl sm:text-[32px] my-auto ms-[12px] font-semibold">
-              Jesh
-            </p>
-          </Link>
+          {isHomePage ? (
+            <ScrollLink
+              to="introduction"
+              smooth={true}
+              duration={900}
+              className="flex items-center border-0 lg:max-xxl:ps-5 cursor-pointer"
+            >
+              <div className="h-8 sm:h-14 w-8 sm:w-14 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center shadow-lg">
+                <span className="text-white font-bold text-lg sm:text-2xl">J</span>
+              </div>
+              <p className="text-2xl sm:text-[32px] my-auto ms-[12px] font-semibold">
+                Jesh
+              </p>
+            </ScrollLink>
+          ) : (
+            <RouterLink
+              to="/"
+              className="flex items-center border-0 lg:max-xxl:ps-5"
+            >
+              <div className="h-8 sm:h-14 w-8 sm:w-14 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center shadow-lg">
+                <span className="text-white font-bold text-lg sm:text-2xl">J</span>
+              </div>
+              <p className="text-2xl sm:text-[32px] my-auto ms-[12px] font-semibold">
+                Jesh
+              </p>
+            </RouterLink>
+          )}
         </div>
 
         <div className="lg:flex items-center">
@@ -106,15 +133,23 @@ const NavBar = () => {
             {menu}
           </ul>
           <p className="">
-            <Link
-              className="btn btn-sm xs:btn-md sm:btn-lg btn-primary"
-              href="#contact"
-              to={`contact`}
-              smooth={true}
-              duration={900}
-            >
-              Contact
-            </Link>
+            {isHomePage ? (
+              <ScrollLink
+                className="btn btn-sm xs:btn-md sm:btn-lg btn-primary cursor-pointer"
+                to="contact"
+                smooth={true}
+                duration={900}
+              >
+                Contact
+              </ScrollLink>
+            ) : (
+              <RouterLink
+                className="btn btn-sm xs:btn-md sm:btn-lg btn-primary"
+                to="/#contact"
+              >
+                Contact
+              </RouterLink>
+            )}
           </p>
         </div>
       </div>

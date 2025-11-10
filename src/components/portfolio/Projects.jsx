@@ -17,8 +17,10 @@ const Projects = ({ data }) => {
         >
           {data?.description}
         </p>
-        <Link
-          to={`/project/${data?.id}`}
+        <a
+          href={data?.link}
+          target={data?.link.startsWith('http') ? '_blank' : '_self'}
+          rel={data?.link.startsWith('http') ? 'noopener noreferrer' : ''}
           className="btn relative overflow-hidden border-2 border-picto-primary text-picto-primary bg-white hover:text-white text-sm xs:text-[16px] font-semibold hover:gap-3 xs:hover:gap-4 transition-all duration-500 mt-5 xs:py-5.75 px-6 max-sm:w-full group"
         >
           <span className="absolute inset-0 bg-picto-primary transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out"></span>
@@ -26,7 +28,7 @@ const Projects = ({ data }) => {
           <span className="ms-1 xs:ms-3 relative z-10">
             <FontAwesomeIcon icon={faArrowRight} size="l" className="" />
           </span>
-        </Link>
+        </a>
         {/* </p> */}
       </div>
     </div>

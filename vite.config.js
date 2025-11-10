@@ -6,9 +6,10 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
   return {
-    base: `/${env.VITE_REPO_NAME}/`,
+    base: `/`,
     plugins: [react(), tailwindcss()],
     server: {
+      port: 3000,
       open: true,
       host: false, // Allow access from network devices
       proxy: {

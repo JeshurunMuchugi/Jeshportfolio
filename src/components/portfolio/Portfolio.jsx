@@ -1,8 +1,9 @@
-import { Link } from "react-router-dom";
+
 import Projects from "./Projects";
+import screenshot1 from "../../assets/images/portfolio-images/screenshot-1.png";
 import card1 from "../../assets/images/portfolio-images/card-1.png";
-import card2 from "../../assets/images/portfolio-images/card-2.png";
-import card3 from "../../assets/images/portfolio-images/card-3.png";
+import cleaningWebsite from "../../../Screenshot 2025-11-10 at 15.51.47.png";
+import card3 from "../../../Screenshot 2025-11-10 at 15.13.11.png";
 import card4 from "../../assets/images/portfolio-images/card-4.png";
 import card5 from "../../assets/images/portfolio-images/card-5.png";
 import card6 from "../../assets/images/portfolio-images/card-6.png";
@@ -10,21 +11,21 @@ import card6 from "../../assets/images/portfolio-images/card-6.png";
 const projectData = [
   {
     id: 1,
-    image: card1,
-    category: "UI-UX DESIGN",
-    title: "Product Admin Dashboard",
+    image: screenshot1,
+    category: "WEB DEVELOPMENT",
+    title: "Smart, Secure, And Effortless Storage",
     description:
-      "I focus on crafting smooth, responsive interfaces that balance aesthetic appeal with practical functionality.",
-    link: "#!",
+      "Our Smart Quote System Instantly Calculates Transport Costs And Storage Size Once You Enter Your Pickup Location — No Calls, No Guesswork, Just Instant Pricing.",
+    link: "https://smart-storage-management-system-06re.onrender.com/",
   },
   {
     id: 2,
-    image: card2,
-    category: "UI-UX DESIGN",
-    title: "Product Admin Dashboard",
+    image: cleaningWebsite,
+    category: "WEB DEVELOPMENT",
+    title: "Professional Cleaning Service Platform",
     description:
-      "Designed an intuitive dashboard for product management, emphasizing clarity and user efficiency.",
-    link: "#!",
+      "A comprehensive web solution featuring automated booking systems, service management, and customer portal for seamless cleaning service operations.",
+    link: "https://cleaning-website-lbx5.onrender.com/",
   },
   {
     id: 3,
@@ -81,19 +82,12 @@ const Portfolio = () => {
       </div>
       <div className="mx-auto flex justify-center">
         <div className="grid xl:grid-cols-3 md:grid-cols-2 gap-6">
-          {projectData.map((data, index) => (
+          {projectData.slice(0, 3).map((data, index) => (
             <Projects data={data} key={index} />
           ))}
         </div>
       </div>
-      <div className="text-center">
-        <Link
-          to="/portfolio"
-          className="btn btn-primary py-3 px-6 mt-12.5 text-center text-[16px] font-semibold inline-block"
-        >
-          More Projects
-        </Link>
-      </div>
+
     </div>
   );
 };

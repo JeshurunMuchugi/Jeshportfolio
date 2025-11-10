@@ -33,7 +33,7 @@ const testimonialData = [
 
 const Testimonial = () => {
   return (
-    <div className="flex mx-auto justify-center px-2 max-w-218 pb-10 md:pb-25">
+    <div className="flex mx-auto justify-center px-2 max-w-218">
       <div className="w-full h-full cursor-grab">
         <p className="section-title mb-6 text-center">Testimonial</p>
         <Swiper
