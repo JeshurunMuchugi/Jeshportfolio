@@ -1,0 +1,64 @@
+@import "tailwindcss";
+@plugin "daisyui";
+@plugin "daisyui" {
+  themes: light --default, dark --prefersdark, cupcake;
+}
+
+* {
+  transition-property: all;
+  transition-timing-function: var(
+    --tw-ease,
+    var(--default-transition-timing-function)
+  );
+  transition-duration: var(--tw-duration, var(--default-transition-duration));
+  --tw-duration: 200ms;
+  transition-duration: 200ms;
+}
+
+@theme {
+  --breakpoint-xxs: 21.25rem; /* COMMENT: 340px */
+  --breakpoint-xs: 23.125rem; /* COMMENT: 363px */
+  --breakpoint-xxl: 82.5rem; /* COMMENT: 1320px */
+  --color-picto-primary: #ff6b35;
+  --color-picto-primary-dark: #e55a2b;
+  --color-soft-white: #f0f1f3;
+  --color-soft-dark: #87909d;
+}
+
+.btn-primary {
+  @apply bg-picto-primary border-0 text-white hover:scale-[102%] hover:bg-picto-primary-dark transition-all duration-500;
+}
+body {
+  font-family: "Work Sans", sans-serif;
+}
+
+.content {
+  @apply max-xxl:w-full xxl:max-w-[1320px] xxl:mx-auto;
+}
+
+.section-title {
+  @apply font-bold text-3xl sm:text-4xl md:text-5xl text-gray-900 mb-4;
+}
+
+.center {
+  @apply flex justify-center items-center;
+}
+
+.introduction-profile-background {
+  background: linear-gradient(135deg, #fff 0%, #f8fafc 50%, #fff 100%),
+    radial-gradient(
+      circle at 12% 100%,
+      #ffe2b0f5 1% 5px,
+      transparent 15%
+    ),
+    radial-gradient(circle at 95% -15%, #ff6b3520 5%, transparent 30%),
+    radial-gradient(circle at center right, #ffd4b3b2 2%, transparent 35%);
+}
+.blog-background {
+  background: radial-gradient(circle at -10% 0%, #da4df166 1%, transparent 25%),
+    radial-gradient(circle at 110% 30%, #c4f5e9b2 5%, transparent 25%);
+}
+
+.shadow-3xl {
+  box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
