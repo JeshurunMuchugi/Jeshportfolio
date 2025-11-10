@@ -6,7 +6,7 @@ const pricingPlans = [
   {
     id: 1,
     name: "Basic Website",
-    price: "KSh 10,000",
+    price: "KSh 15,000",
     duration: "1 Week",
     description: "Profit-Friendly Scope - Professional value!",
     features: [
@@ -26,7 +26,7 @@ const pricingPlans = [
   {
     id: 2,
     name: "Business Pro Website",
-    price: "KSh 20,000",
+    price: "KSh 25,000",
     duration: "1-2 weeks",
     description: "Complete business solution - Double the value!",
     features: [
